@@ -212,40 +212,40 @@ function App() {
           <div className="m-auto sm:flex w-[80%] justify-between ">
             <div className="">
               <a
-                className="text-lg font-semibold opacity-90"
+                className="text-base sm:text-lg font-semibold opacity-90"
                 href="https://boostedusa.com/"
               >
                 Pawtobby
               </a>
             </div>
             <div className="">
-              <h2 className="mb-4 mt-4 sm:mt-0 text-lg font-semibold opacity-90">Explore</h2>
-              <ul>
-                <li>
+              <h2 className="mb-4 mt-4 sm:mt-0 text-base sm:text-lg font-semibold opacity-90">Explore</h2>
+              <ul className="text-[0.76rem] sm:text-base">
+                <li className="mb-2">
                   <a href="#">About Us</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">Our Services</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">Book Now</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">FAQs</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">Contact Us</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">Quick Start Guide</a>
                 </li>
-                <li>
+                <li className="mb-2">
                   <a href="#">Accessibility Statement</a>
                 </li>
               </ul>
             </div>
             <div className="sm:w-[35%] s-[45%]">
-              <h2 className="mb-4 text-lg font-semibold opacity-90 mt-4 sm:mt-0">
+              <h2 className="mb-4 text-base sm:text-lg font-semibold opacity-90 mt-4 sm:mt-0">
                 Pawtobby
               </h2>
               <p className="mb-4">
@@ -259,7 +259,7 @@ function App() {
         </div>
 
         <div className="m-auto sm:flex w-[80%] justify-between p-6">
-          <div className="text-xs font-bold ">
+          <div className="text-xs sm:font-bold">
             <p>
               &copy; 2023{" "}
               <a className="text-[#F69946]" href="https://boostedusa.com/">
