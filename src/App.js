@@ -18,7 +18,7 @@ function App() {
         <nav className="m-auto flex sm:w-[80%] justify-between p-8">
           <ul>
             <li>
-              <a className="text-lg font-semibold opacity-80 sm:opacity-60" href="">
+              <a className="text-xl font-semibold opacity-80" href="">
                 Pawtobby
               </a>
             </li>
@@ -36,7 +36,7 @@ function App() {
             <li>
               <a href="">
                 Our Services{" "}
-                <i class="fa-solid fa-sort-down ml-1 text-center align-text-top opacity-80"></i>
+                <i class="fa-solid fa-sort-down ml-1 text-center align-top opacity-80"></i>
               </a>
             </li>
             <li>
@@ -56,8 +56,7 @@ function App() {
               Book Online
             </h1>
             <p className="text-md">
-              If you want someone to care for your pet when you’re away, pet
-              sitters are a great choice.
+              If you want someone to care for your pet when you’re away, Pawtobby is a great choice.
             </p>
             <button className="mt-6 rounded-sm bg-[#F69946] px-4 py-1 text-white">
               Book Now <i className="fa-solid fa-angle-right ml-2"></i>
@@ -77,7 +76,7 @@ function App() {
                 Pet Sitting
               </h4>
               <div className="rounded-sm bg-[#F69946] px-4 py-1 text-white opacity-80">
-                <button className="opacity-100 sm:text-base text-sm">Know More</button>
+                <button className="opacity-100 sm:text-base text-sm">Know More <i className="fa-solid fa-angle-right ml-2"></i></button>
               </div>
             </div>
             <div className="flex flex-col items-start rounded-sm bg-[#FFFAF5] p-6">
@@ -86,7 +85,7 @@ function App() {
                 Feeding
               </h4>
               <div className="rounded-sm bg-[#F69946] px-4 py-1 text-white opacity-80">
-                <button className="opacity-100 sm:text-base text-sm">Know More</button>
+                <button className="opacity-100 sm:text-base text-sm">Know More <i className="fa-solid fa-angle-right ml-2"></i></button>
               </div>
             </div>
             <div className="flex flex-col items-start rounded-sm bg-[#FFFAF5] p-6">
@@ -95,7 +94,7 @@ function App() {
                 Walking
               </h4>
               <div className="rounded-sm bg-[#F69946] px-4 py-1 text-white opacity-80">
-                <button className="opacity-100 sm:text-base text-sm">Know More</button>
+                <button className="opacity-100 sm:text-base text-sm">Know More <i className="fa-solid fa-angle-right ml-2"></i></button>
               </div>
             </div>
             <div className="flex flex-col items-start rounded-sm bg-[#FFFAF5] p-6">
@@ -104,7 +103,7 @@ function App() {
                 Doggie daycare
               </h4>
               <div className="rounded-sm bg-[#F69946] px-4 py-1 text-white opacity-80">
-                <button className="opacity-100 sm:text-base text-sm">Know More</button>
+                <button className="opacity-100 sm:text-base text-sm">Know More <i className="fa-solid fa-angle-right ml-2"></i></button>
               </div>
             </div>
           </div>
@@ -207,7 +206,7 @@ function App() {
           </div>
         </div>
       </section>
-      <footer className="text-xs sm:text-base">
+      <footer className="text-xs sm:text-sm">
         <div className="bg-[#FFFAF5] p-8  sm:p-12">
           <div className="m-auto sm:flex w-[80%] justify-between ">
             <div className="">
@@ -220,7 +219,7 @@ function App() {
             </div>
             <div className="">
               <h2 className="mb-4 mt-4 sm:mt-0 text-base sm:text-lg font-semibold opacity-90">Explore</h2>
-              <ul className="text-[0.76rem] sm:text-base">
+              <ul className="text-[0.76rem] sm:text-sm">
                 <li className="mb-2">
                   <a href="#">About Us</a>
                 </li>
