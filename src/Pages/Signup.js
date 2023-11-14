@@ -13,33 +13,31 @@ function Signup() {
   const [completename,changeName,resetName]=useChangevalue("");
   const [postcode,changePostcode,resetPostcode]=useChangevalue("");
   const [password,changePassword,resetPassword]=useChangevalue("");
-  const [googleName,setName]=useState('');
-  const [googleEmail,setEmail]=useState('');
 
   const signupWithGoogle = async ()=>{
-    try{
-      const google_provider=new GoogleAuthProvider();
-      var userCredential=await signInWithPopup(auth,google_provider);
-      setName(userCredential.user.displayName);
-      setEmail(userCredential.user.email);
-      const newUser={...userCredential,fname:"Anshika Dubey"};
-      userCredential=newUser
-      console.log(userCredential);
-    }catch(error){
-      console.error('Error during registration:', error.message);
-    }
+    const google_provider=new GoogleAuthProvider();
+    signInWithPopup(auth,google_provider)
+    .then((res)=>{
+      const newUser={...res,name:res.user.displayName,email:res.user.email};
+      res=newUser;
+      console.log(res);
+      window.location.href = "/signin";
+    }).catch((error)=>{
+      alert(error.message)
+    });
   }
 
   const signUp=async ()=>{
       try {
         var userCredential = await createUserWithEmailAndPassword(auth,email, password)
-        const newUser={...userCredential,fname:"Anshika Dubey"};
+        const newUser={...userCredential,name:completename,postcode:postcode,email:email};
         userCredential=newUser
         console.log(userCredential);
         await sendEmailVerification(auth.currentUser)
         alert('Verification email sent');
+        window.location.href = "/signin";
       } catch (error) {
-        console.error('Error during registration:', error.message);
+        alert(error.message);
       }
     }
   

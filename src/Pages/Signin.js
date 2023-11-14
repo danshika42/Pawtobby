@@ -13,15 +13,16 @@ function Signin() {
   const [password,changePassword,resetPassword]=useChangevalue("");
 
   const signinWithGoogle = async ()=>{
-    try{
-      const google_provider=new GoogleAuthProvider();
-      var userCredential=await signInWithPopup(auth,google_provider);
-      const newUser={...userCredential,fname:"Anshika Dubey"};
-      userCredential=newUser
-      console.log(userCredential);
-    }catch(error){
-      console.error('Error during registration:', error.message);
-    }
+    const google_provider=new GoogleAuthProvider();
+    signInWithPopup(auth,google_provider)
+    .then((res)=>{
+      const newUser={...res,name:res.user.displayName,email:res.user.email};
+      res=newUser;
+      console.log(res);
+      window.location.href = "/";
+    }).catch((error)=>{
+      alert(error.message)
+    });
   }
 
   const signIn = async ()=>{
