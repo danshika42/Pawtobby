@@ -5,6 +5,7 @@ import SearchSitter from "./Pages/SearchSitter";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import ForgetPassword from "./Pages/ForgetPassword";
+import Profile from "./Pages/Profile";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path='/signin' Component={Signin}/>
       <Route path='/signup' Component={Signup}/>
       <Route path='/forgotpassword' Component={ForgetPassword}/>
+      <Route path='/profile' Component={Profile} />
      </Routes>
     </div>
   );

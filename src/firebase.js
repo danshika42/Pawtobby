@@ -1,18 +1,19 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
-import {getFirestore} from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDo5JVifmuwKtlwb4f9IUhojriSAMF1pw4",
-  authDomain: "pawtobby-auth.firebaseapp.com",
-  projectId: "pawtobby-auth",
-  storageBucket: "pawtobby-auth.appspot.com",
-  messagingSenderId: "679831706358",
-  appId: "1:679831706358:web:0e67b602b405fb72922ad7"
+  apiKey: "AIzaSyCQvOtyADOwzZKrphyis4c-OsjJjhPKXMc",
+  authDomain: "pawtobby.firebaseapp.com",
+  projectId: "pawtobby",
+  storageBucket: "pawtobby.appspot.com",
+  messagingSenderId: "622648981788",
+  appId: "1:622648981788:web:da4f95d787be90b30862d9"
 };
 
 const app = initializeApp(firebaseConfig);
 
 export const auth=getAuth(app);
-
 export const db = getFirestore(app);
+
+
