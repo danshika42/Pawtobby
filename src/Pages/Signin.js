@@ -6,7 +6,7 @@ import sidebg from '../images/Group 45.svg'
 import logo from '../images/Group 44.svg'
 import line from '../images/Line 5.svg'
 import google from '../images/google.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useStateValue } from '../Context/StateContext';
 import UserHandle from '../database/user.database'
 
@@ -14,6 +14,7 @@ function Signin() {
   const [email,changeEmail,resetEmail]=useChangevalue("");
   const [password,changePassword,resetPassword]=useChangevalue("");
   const [{Users},dispatch]=useStateValue();
+  const navigate = useNavigate();
 
 
 
@@ -48,10 +49,10 @@ function Signin() {
       const google_provider=new GoogleAuthProvider();
       const userCredential=await signInWithPopup(auth,google_provider);
 
-      const userData={name:userCredential.user.displayName,email:userCredential.user.email,postcode:""};
+      const userData={name:userCredential.user.displayName,email:userCredential.user.email,postcode:"",petImg:"",houseImg:"",idImg:"",userImg:""};
       console.log(userCredential);
      
-      const arr =UserHandle.getUserData(Users,userData.email);
+      const arr =UserHandle.getUserData(Users,userCredential.user.email);
       
       if(arr.length===0){
         await UserHandle.addUser(userData);
@@ -59,7 +60,7 @@ function Signin() {
       }
       setCurrentUserEmail(userData.email);
       setLogin(true);
-      window.location.href = "/";
+      navigate("/");
     }catch(error){
       alert(error.message);
     }
@@ -73,7 +74,7 @@ function Signin() {
         setLogin(true);
         resetEmail();
         resetPassword();
-        window.location.href = "/";
+        navigate("/");
       }else{
         await signOut(auth);
         setLogin(false);

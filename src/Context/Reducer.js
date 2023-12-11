@@ -1,7 +1,7 @@
 export const initialState= { 
     Users:[],
     currentUserEmail:"",
-    isLoggedIn:false
+    isLoggedIn:false,
 };
 
  

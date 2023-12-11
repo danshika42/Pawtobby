@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/Group 44.svg"
 import { auth } from "../firebase";
@@ -43,7 +43,7 @@ function Banner() {
         <i className="fa-solid fa-bars flex text-2xl opacity-60 md:hidden"></i>
         <ul className="hidden w-[60%] justify-evenly items-center font-medium opacity-80 md:flex">
           <li>
-            <NavLink className={({isActive})=>("text-[#F69946] bold")} to="/">
+            <NavLink className={({isActive})=>(isActive?"text-[#F69946] bold":"")} to="/">
               Home
             </NavLink>
           </li>
@@ -51,10 +51,10 @@ function Banner() {
             <a href="">About Us</a>
           </li> */}
           <li>
-            <a href="">
-              Our Services{" "}
+            <NavLink className={({isActive})=>(isActive?"text-[#F69946] bold":"")} to="/userbookings">
+              Bookings{" "}
               <i className="fa-solid fa-sort-down ml-1 text-center align-top opacity-80"></i>
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink className={({isActive})=>(isActive?"text-[#F69946] bold":"")} to="/book">Book Now</NavLink>
@@ -88,7 +88,7 @@ function Banner() {
                 <i className="fa-solid fa-user"></i>
               </li>
               <li>
-                <p className="font-thin text-sm ml-2">{data[0].name}</p>
+                <p className="font-thin text-sm ml-2">{data[0]?.name}</p>
               </li>
             </NavLink>
           }

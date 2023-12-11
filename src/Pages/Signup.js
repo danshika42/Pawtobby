@@ -1,11 +1,11 @@
-import React,{useState}  from 'react'
+import React from 'react'
 import { useChangevalue } from '../customHooks/useChangevalue'
 import {auth} from '../firebase'
 import { createUserWithEmailAndPassword,sendEmailVerification , GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import sidebg from '../images/Group 45.svg'
 import line from '../images/Line 5.svg'
 import google from '../images/google.svg'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useStateValue } from '../Context/StateContext';
 import UserHandle from '../database/user.database'
 
@@ -15,6 +15,7 @@ function Signup() {
   const [postcode,changePostcode,resetPostcode]=useChangevalue("");
   const [password,changePassword,resetPassword]=useChangevalue("");
   const [{Users},dispatch]=useStateValue();
+  const navigate = useNavigate();
 
   function setUser(user){
     dispatch({
@@ -39,6 +40,7 @@ function Signup() {
 
   const getUsers=async ()=>{
     const data = await UserHandle.getalluser();
+    console.log("dataUser");
     console.log(data.docs);
     setUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   }
@@ -47,7 +49,7 @@ function Signup() {
     try{
       const google_provider=new GoogleAuthProvider();
       const userCredential=await signInWithPopup(auth,google_provider);
-      const userData={name:userCredential.user.displayName,email:userCredential.user.email,postcode:""};
+      const userData={name:userCredential.user.displayName,email:userCredential.user.email,postcode:"",petImg:"",houseImg:"",idImg:"",userImg:""};
       console.log(userCredential);
       const arr = UserHandle.getUserData(Users,userData.email);
       
@@ -58,7 +60,7 @@ function Signup() {
 
       setCurrentUserEmail(userData.email);
       setLogin(true);
-      window.location.href = "/";
+      navigate("/");
     }catch (error) {
       alert(error.message);
     }
@@ -67,8 +69,9 @@ function Signup() {
   const signUp=async ()=>{
       try {
         const userCredential = await createUserWithEmailAndPassword(auth,email, password)
-        const userData={name:completename,postcode:postcode,email:email};
+        const userData={name:completename,postcode:postcode,email:email,petImg:"",houseImg:"",idImg:"",userImg:""};
         console.log(userCredential);
+        
         await UserHandle.addUser(userData);
         getUsers();
         resetEmail();
@@ -77,7 +80,7 @@ function Signup() {
         resetPostcode();
         await sendEmailVerification(auth.currentUser)
         alert('Verify Email, Verification email sent');
-        window.location.href = "/signin";
+        navigate("/signin");
       } catch (error) {
         alert(error.message);
       }

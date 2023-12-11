@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../images/Group 44.svg"
 import { auth } from "../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useStateValue } from "../Context/StateContext";
 import UserHandle from "../database/user.database";
 
@@ -44,12 +44,12 @@ function Nav() {
         {/* <li>
           <a href="">About Us</a>
         </li> */}
-        <li>
-          <a href="">
-            Our Services{" "}
-            <i className="fa-solid fa-sort-down ml-1 text-center align-top opacity-80"></i>
-          </a>
-        </li>
+          <li>
+            <NavLink className={({isActive})=>(isActive?"text-[#F69946] bold":"")} to="/userbookings">
+               Bookings{" "}
+              <i className="fa-solid fa-sort-down ml-1 text-center align-top opacity-80"></i>
+            </NavLink>
+          </li>
         <li>
         <NavLink className={({isActive})=>(isActive?"text-[#F69946] bold":"")} to="/book">Book Now</NavLink>
         </li>
@@ -83,7 +83,7 @@ function Nav() {
                 <i className="fa-solid fa-user"></i>
               </li>
               <li>
-                <p className="font-thin text-sm ml-2">{data[0].name}</p>
+                <p className="font-thin text-sm ml-2">{data[0]?.name}</p>
               </li>
             </NavLink>
             </>

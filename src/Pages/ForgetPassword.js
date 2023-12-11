@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useChangevalue } from '../customHooks/useChangevalue';
 import sidebg from '../images/Group 45.svg'
 import logo from '../images/Group 44.svg'
@@ -8,11 +8,12 @@ import {auth} from '../firebase'
 
 function ForgetPassword() {
   const [email,changeEmail,resetEmail]=useChangevalue("");
+  const navigate = useNavigate();
   const handleResetPassword = async () => {
     try {
       await sendPasswordResetEmail(auth,email);
       alert('Password reset email sent. Check your inbox.');
-      window.location.href='signin'
+      navigate('signin')
     } catch (error) {
       console.error('Error sending reset email:', error.message);
     }
