@@ -60,7 +60,7 @@ function Signin() {
       }
       setCurrentUserEmail(userData.email);
       setLogin(true);
-      navigate("/");
+      navigate("/profile");
     }catch(error){
       alert(error.message);
     }
@@ -74,7 +74,7 @@ function Signin() {
         setLogin(true);
         resetEmail();
         resetPassword();
-        navigate("/");
+        navigate("/profile");
       }else{
         await signOut(auth);
         setLogin(false);
